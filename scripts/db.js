@@ -1,98 +1,110 @@
-let myDishes = [
-    {
+let cart = [];
+
+let restaurants = [
+  {
+    "name": "China-Taxi Mandarin",
+    "rating": 4.2,
+    "headerImg": "https://placehold.co/2000x600",
+    "logoImg": "https://placehold.co/100x100",
+
+    "categories": [
+      {
         "id": 1,
-        "name": "Spaghetti Carbonara",
-        "price": 12.99,
-        "description": "Cremige Pasta mit Speck, Ei und Parmesan, frisch zubereitet.",
-        "order": 0,
-        "category": "Pasta",
-    },
-    {
+        "name": "Vorspeisen",
+        "img": "https://placehold.co/2000x600",
+        "dishes": [
+          {
+            "id": 1,
+            "name": "Frühlingsrolle",
+            "price": 4.5,
+            "description": "Knusprige Frühlingsrolle mit Schweinehackfleisch und Gemüse.",
+          },
+          {
+            "id": 2,
+            "name": "Gemischter Salat",
+            "price": 6.5,
+            "description": "Frischer Salat mit Tomaten, Gurken und einer Sauce nach Wahl.",
+          },
+          {
+            "id": 3,
+            "name": "Wan Tan Suppe",
+            "price": 5.9,
+            "description": "Klare Brühe mit gefüllten Wan Tan und Frühlingszwiebeln.",
+          },
+        ],
+      },
+
+      {
         "id": 2,
-        "name": "Penne Arrabiata",
-        "price": 10.99,
-        "description": "Penne mit würziger Tomatensauce, Knoblauch und Chili.",
-        "order": 0,
-        "category": "Pasta",
-    },
-    {
+        "name": "Hauptgerichte",
+        "img": "https://placehold.co/2000x600",
+        "dishes": [
+          {
+            "id": 4,
+            "name": "Gebratene Nudeln mit Hähnchen",
+            "price": 10.9,
+            "description": "Gebratene Eiernudeln mit Gemüse und saftigem Hähnchen.",
+          },
+          {
+            "id": 5,
+            "name": "Knusprige Ente süß-sauer",
+            "price": 14.9,
+            "description": "Knusprige Ente mit süß-saurer Sauce, Gemüse und Reis.",
+          },
+          {
+            "id": 6,
+            "name": "Rind mit Brokkoli",
+            "price": 13.5,
+            "description": "Zartes Rindfleisch mit Brokkoli in würziger Sojasauce.",
+          },
+        ],
+      },
+
+      {
         "id": 3,
-        "name": "Tagliatelle Lachs",
-        "price": 14.99,
-        "description": "Bandnudeln mit frischem Lachs in cremiger Dill-Sahnesauce.",
-        "order": 0,
-        "category": "Pasta",
-    },
-    {
+        "name": "Desserts",
+        "img": "https://placehold.co/2000x600",
+        "dishes": [
+          {
+            "id": 7,
+            "name": "Gebackene Banane",
+            "price": 4.9,
+            "description": "Knusprig gebackene Banane mit Honig und Sesam.",
+          },
+          {
+            "id": 8,
+            "name": "Lychee",
+            "price": 3.9,
+            "description": "Süße Lychee-Früchte, gekühlt serviert.",
+          },
+        ],
+      },
+
+      {
         "id": 4,
-        "name": "Pizza Margherita",
-        "price": 9.99,
-        "description": "Klassische Pizza mit Tomatensauce, Mozzarella und Basilikum.",
-        "order": 0,
-        "category": "Pizza",
-    },
-    {
-        "id": 5,
-        "name": "Pizza Salami",
-        "price": 11.49,
-        "description": "Knusprige Pizza mit Tomatensauce, Mozzarella und würziger Salami.",
-        "order": 0,
-        "category": "Pizza",
-    },
-    {
-        "id": 6,
-        "name": "Pizza Vegetaria",
-        "price": 11.99,
-        "description": "Pizza mit frischem Gemüse, Tomatensauce und Mozzarella.",
-        "order": 0,
-        "category": "Pizza",
-    },
-    {
-        "id": 7,
-        "name": "Caesar Salat",
-        "price": 9.49,
-        "description": "Römersalat mit Caesar-Dressing, Croutons und Parmesan.",
-        "order": 0,
-        "category": "Salate",
-    },
-    {
-        "id": 8,
-        "name": "Griechischer Salat",
-        "price": 8.99,
-        "description": "Frischer Salat mit Feta, Oliven, Gurken und Tomaten.",
-        "order": 0,
-        "category": "Salate",
-    },
-    {
-        "id": 9,
-        "name": "Tiramisu",
-        "price": 6.49,
-        "description": "Italienisches Dessert mit Mascarpone, Espresso und Kakao.",
-        "order": 0,
-        "category": "Desserts",
-    },
-    {
-        "id": 10,
-        "name": "Panna Cotta",
-        "price": 5.99,
-        "description": "Cremiges Sahnedessert mit fruchtiger Beerensauce.",
-        "order": 0,
-        "category": "Desserts",
-    },
-    {
-        "id": 11,
-        "name": "Cola",
-        "price": 2.99,
-        "description": "Erfrischendes kohlensäurehaltiges Getränk.",
-        "order": 0,
-        "category": "Getränke",
-    },
-    {
-        "id": 12,
-        "name": "Mineralwasser",
-        "price": 2.49,
-        "description": "Sprudelndes Mineralwasser, gut gekühlt.",
-        "order": 0,
-        "category": "Getränke",
-    }
+        "name": "Getränke",
+        "img": "https://placehold.co/2000x600",
+        "dishes": [
+          {
+            "id": 9,
+            "name": "Cola",
+            "price": 2.5,
+            "description": "0,33l gekühlt serviert.",
+          },
+          {
+            "id": 10,
+            "name": "Mineralwasser",
+            "price": 2.2,
+            "description": "0,33l sprudelnd oder still.",
+          },
+          {
+            "id": 11,
+            "name": "Jasmintee",
+            "price": 2.8,
+            "description": "Traditioneller chinesischer Jasmintee.",
+          },
+        ],
+      },
+    ],
+  },
 ];

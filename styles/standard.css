@@ -3,3 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+a{
+    text-decoration: none;
+}
+
+.content{
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-inline: clamp(16px, 3vw, 30px);
+}

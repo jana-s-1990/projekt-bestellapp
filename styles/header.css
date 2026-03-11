@@ -1,0 +1,42 @@
+.main-header{
+    background-color: var(--main-header-color);
+    padding-inline: 16px;
+    padding-block: 20px;
+}
+
+#content-header > header{
+    position: relative;
+}
+
+.header-restaurant-img{
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.header-restaurant-img img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.header-restaurant-logo{
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+}
+
+.header-restaurant-logo img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.content-header-restaurant{
+    padding-block: clamp(30px, 4vw, 45px);
+}

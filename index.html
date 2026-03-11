@@ -7,25 +7,31 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/standard.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/categories.css">
 
     <script src="scripts/db.js"></script>
+    <script src="scripts/template.js"></script>
     <script src="script.js"></script>
 </head>
-<body>
-    <header>
-        <figure class="header-logo">
-            <img src="https://placehold.co/200x50" alt="Bestell App Logo">
-        </figure>
-        <section class="header-img">
-            <figure class="restaurant-logo">
-                <img src="https://placehold.co/50x50" alt="Restaurant Logo">
+<body onload="init()">
+    <header class="main-header">
+        <div class="content">
+            <figure class="header-logo">
+                <img src="https://placehold.co/200x50" alt="Bestell App Logo">
             </figure>
-        </section>
+        </div>
     </header>
     <main>
+        <section id="content-header"></section>
         <section>
-            <h1>Paradise Noodle</h1>
-            <p>Bewertung (4,2 von 5 Sternen)</p>
+            <div class="categorie-list">
+                <div id="content-categories" class="content"></div>
+            </div>
+        </section>
+        <section class="content">
+            <header id="categorie-dishes-header"></header>
+            <div id="categorie-dishes"></div>
         </section>
     </main>
     
