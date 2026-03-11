@@ -8,8 +8,26 @@ a{
     text-decoration: none;
 }
 
+.main-layout{
+    display: flex;
+    align-items: flex-start;    
+}
+
 .content{
     max-width: 1440px;
     margin: 0 auto;
     padding-inline: clamp(16px, 3vw, 30px);
+}
+
+.main-content{
+    flex: 1;
+}
+
+.cart-area{
+    width: 350px;
+    border-left: 1px solid #eee;
+    background-color: aqua;
+    height: 100vh;
+    position: sticky;
+    top: 0;
 }

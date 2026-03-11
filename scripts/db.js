@@ -1,4 +1,4 @@
-let cart = [];
+let basket = [];
 
 let restaurants = [
   {

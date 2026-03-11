@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bestell App</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/standard.css">
     <link rel="stylesheet" href="styles/header.css">
@@ -22,18 +24,22 @@
             </figure>
         </div>
     </header>
-    <main>
-        <section id="content-header"></section>
-        <section>
-            <div class="categorie-list">
-                <div id="content-categories" class="content"></div>
+    <main class="main-layout">
+        <div class="main-content">
+            <section id="content-header"></section>
+            <section>
+                <div class="categorie-list">
+                    <div id="content-categories" class="content"></div>
+                </div>
+            </section>
+            <section id="categorie-dishes" class="content"></section>
+        </div>
+        <aside class="cart-area">
+            <div class="cart">
+                <h2>Warenkorb</h2>
+                <div id="cart-items"></div>
             </div>
-        </section>
-        <section class="content">
-            <header id="categorie-dishes-header"></header>
-            <div id="categorie-dishes"></div>
-        </section>
-    </main>
-    
+        </aside>
+    </main>    
 </body>
 </html>

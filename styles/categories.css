@@ -9,12 +9,12 @@
     gap: 30px;
     padding-block: 20px;
 }
-#categorie-dishes-header figure{
+.category figure{
     width: 100%;
     height: 300px;
     overflow: hidden;
 }
-#categorie-dishes-header img{
+.category img{
     width: 100%;
     height: 100%;
     object-fit: cover;
