@@ -55,6 +55,14 @@ function dishesTemplate(dish){
     `
 }
 
+function basketEmptyTempate(){
+    return /*html*/`
+        <i class="fa-solid fa-basket-shopping"></i>
+        <h3>Fülle deinen Warenkorb</h3>
+        <p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p>
+    `
+}
+
 function basketTemplate(basketDish){
     return /*html*/`
         <div class="cart-item">
@@ -62,8 +70,8 @@ function basketTemplate(basketDish){
                 <span>${basketDish.amount}x</span>
                 <span>${basketDish.name}</span>
                 <span>${(basketDish.price * basketDish.amount).toFixed(2).replace(".", ",")} €</span>
-                <button onclick="subDish()"><i class="fa-solid fa-minus"></i></button>
-                <button onclick="plusDish()"><i class="fa-solid fa-plus"></i></button>
+                <button onclick="subDish(${basketDish.id})"><i class="fa-solid fa-minus"></i></button>
+                <button onclick="plusDish(${basketDish.id})"><i class="fa-solid fa-plus"></i></button>
             </p>
     </div>
     `

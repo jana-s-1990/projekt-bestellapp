@@ -1,6 +1,8 @@
 function init(){
+    loadOrder();
     renderRestaurantHeader();
     renderRestaurantCategories();
+    renderBasket();
 };
 
 function renderRestaurantHeader(){
@@ -36,21 +38,15 @@ function renderBasket(){
     let basketContainerRef = document.getElementById("cart-items");
     basketContainerRef.innerHTML = "";
 
-    for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
-        const basketDish = basket[indexBasket];
-        basketContainerRef.innerHTML += basketTemplate(basketDish);
-        
+    if(basket.length === 0){
+        basketContainerRef.innerHTML += basketEmptyTempate();
+    } else{
+        for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
+            const basketDish = basket[indexBasket];
+            basketContainerRef.innerHTML += basketTemplate(basketDish);
+            
+        }
     }
-
-    basket.forEach(item => {
-        basketRef.innerHTML += `
-            <div class="cart-item">
-                <span>${item.amount}x</span>
-                <span>${item.name}</span>
-                <span>${(item.price * item.amount).toFixed(2).replace(".", ",")} €</span>
-            </div>
-        `;
-    });
 
 }
 
@@ -69,6 +65,7 @@ function addToBasket(dishId) {
         });
     }
 
+    saveOrder();
     renderBasket();
 }
 
@@ -85,4 +82,24 @@ function findDishById(dishId){
             }
         }
     }
+}
+
+function subDish(basketDishID){
+    let index = basket.findIndex(d => d.id === basketDishID);
+    basket[index].amount--;
+
+    if(basket[index].amount <= 0){
+        basket.splice(index ,1);
+    }
+
+    saveOrder();
+    renderBasket();
+}
+
+function plusDish(basketDishID){
+    let baskekDish = basket.find(d => d.id === basketDishID);
+    baskekDish.amount++;
+
+    saveOrder();
+    renderBasket();
 }
