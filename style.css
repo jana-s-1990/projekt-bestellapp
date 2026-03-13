@@ -1,3 +1,60 @@
-:root{
-    --main-header-color: #F28732;
+:root {
+  --main-color: rgba(231, 108, 31, 1);
+  --dishes-cart-color: rgba(253, 234, 220, 1);
+  --grey-color: rgba(54, 53, 52, 1);
+  --main-font-color: rgba(54, 53, 52, 1);
+}
+
+@font-face {
+  font-family: "Palanquin";
+  src: url("assets/fonts/Palanquin-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Palanquin";
+  src: url("assets/fonts/Palanquin-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Palanquin";
+  src: url("assets/fonts/Palanquin-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Palanquin";
+  src: url("assets/fonts/Palanquin-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Palanquin Dark";
+  src: url("assets/fonts/PalanquinDark-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Palanquin Dark";
+  src: url("assets/fonts/PalanquinDark-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@media (max-width: 1024px) {
+  .display-desktop {
+    display: none;
+  }
 }

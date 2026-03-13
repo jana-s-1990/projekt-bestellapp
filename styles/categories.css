@@ -1,6 +1,7 @@
 .categorie-list{
     background-color: #F9F5F2;
 }
+
 #content-categories{
     display: flex;
     justify-content: space-between;
@@ -9,13 +10,39 @@
     gap: 30px;
     padding-block: 20px;
 }
+
 .category figure{
     width: 100%;
     height: 300px;
     overflow: hidden;
 }
+
 .category img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.category-wrapper{
+    align-items: center;
+}
+
+figure.caregory-icon{
+    width: 60px;
+    height: 60px;
+    top: 20px;
+    position: relative;
+}
+
+figure.caregory-icon img{
+    object-fit: contain;
+}
+
+.category-name-bg{
+    background-color: var(--main-color);
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: clamp(32px, 3vw, 40px);
+    padding-block: 14px;
 }

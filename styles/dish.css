@@ -1,0 +1,11 @@
+.category-dishes{
+    margin-top: 30px;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.category-dish {
+  background-color: var(--dishes-cart-color);
+  border-radius: 20px;
+  padding: 16px;
+}

@@ -9,8 +9,11 @@ function headerRestaurantTemplate(restaurant){
             </figure>
         </header>
         <div class="content content-header-restaurant">
-            <h1>${restaurant.name}</h1>
-            <p class="header-rating">Bewertung (${restaurant.rating} von 5 Sternen)</p>
+            <div class="content-header-name-rating display-flex flex-center flex-mobile-column flex-desktop-row-reserve">
+                <p class="header-rating"><i class="fa-solid fa-star"></i><strong>${restaurant.rating.toFixed(1).replace(".", ",")}</strong> (${restaurant.ratingCount}) </p>
+                <h1>${restaurant.name}</h1>
+            </div>
+            <p class="content-header-restaurant-description">${restaurant.description}</p>
         </div>
     `
 }
@@ -27,17 +30,21 @@ function categorySectionTemplate(category){
     for (let i = 0; i < category.dishes.length; i++) {
         const dish = category.dishes[i];
         dishesHTML += dishesTemplate(dish);
+        console.log(dish);
+        console.log(dish.img);
     }
 
     return /*html*/`
         <section class="category">
-            <figure>
-                <img src="${category.img}" alt="${category.name}">
-            </figure>
-
-            <h2 id="${category.name}">${category.name}</h2>
-
-            <div class="category-dishes">
+            <div class="category-wrapper display-flex flex-mobile-column">
+                <figure class="caregory-icon">
+                    <img src="${category.img}" alt="${category.name}">
+                </figure>
+                <div class="category-name-bg">
+                    <h2 id="${category.name}">${category.name}</h2>
+                </div>
+            </div>
+            <div class="category-dishes content display-flex">
                 ${dishesHTML}
             </div>
         </section>
@@ -46,11 +53,16 @@ function categorySectionTemplate(category){
 
 function dishesTemplate(dish){
     return /*html*/`
-        <div class="category-dish">
-            <p>${dish.name}</p>
-            <p>${dish.price.toFixed(2).replace(".", ",")}</p>
+        <div class="category-dish display-flex flex-mobile-column">
+            <figure>
+                <img src="${dish.img}" alt="${dish.name}">
+            </figure>
+            <h3>${dish.name}</h3>
             <p>${dish.description}</p>
-            <button onclick="addToBasket(${dish.id})"><i class="fa-solid fa-plus"></i></button>
+            <div class="category-price-addBasket-wrapper display-flex">
+                <p>${dish.price.toFixed(2).replace(".", ",")}€</p>
+                <button onclick="addToBasket(${dish.id})"><i class="fa-solid fa-plus"></i></button>
+            </div>
         </div>
     `
 }

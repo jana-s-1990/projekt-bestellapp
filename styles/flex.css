@@ -1,0 +1,18 @@
+.display-flex {
+  display: flex;
+}
+
+.flex-mobile-column {
+  flex-direction: column;
+}
+
+.flex-center{
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 769px) {
+  .flex-desktop-row-reserve {
+    flex-direction: row-reverse;
+  }
+}

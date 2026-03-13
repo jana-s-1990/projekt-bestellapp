@@ -35,7 +35,7 @@ function renderRestaurantCategories(){
 }
 
 function renderBasket(){
-    let basketContainerRef = document.getElementById("cart-items");
+    let basketContainerRef = document.getElementById("basket-items");
     basketContainerRef.innerHTML = "";
 
     if(basket.length === 0){

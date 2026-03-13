@@ -9,8 +9,11 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/standard.css">
+    <link rel="stylesheet" href="styles/flex.css">
     <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/basket.css">
     <link rel="stylesheet" href="styles/categories.css">
+    <link rel="stylesheet" href="styles/dish.css">
 
     <script src="scripts/db.js"></script>
     <script src="scripts/localStorage.js"></script>
@@ -21,7 +24,7 @@
     <header class="main-header">
         <div class="content">
             <figure class="header-logo">
-                <img src="https://placehold.co/200x50" alt="Bestell App Logo">
+                <img src="assets/img/logo/logo-bestellapp.png" alt="Bestell App Logo">
             </figure>
         </div>
     </header>
@@ -33,12 +36,12 @@
                     <div id="content-categories" class="content"></div>
                 </div>
             </section>
-            <section id="categorie-dishes" class="content"></section>
+            <section id="categorie-dishes"></section>
         </div>
-        <aside class="cart-area">
-            <div class="cart">
+        <aside class="display-desktop basket-container">
+            <div class="basket">
                 <h2>Warenkorb</h2>
-                <div id="cart-items"></div>
+                <div id="basket-items"></div>
             </div>
         </aside>
     </main>    

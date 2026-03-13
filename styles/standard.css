@@ -1,33 +1,42 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a{
-    text-decoration: none;
+body {
+  font-family: "Palanquin", sans-serif;
+  font-weight: 600;
+  color: var(--main-font-color);
+  line-height: 1.25;
 }
 
-.main-layout{
-    display: flex;
-    align-items: flex-start;    
+h1{
+    font-family: "Palanquin Dark", sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 4vh, 48px);
 }
 
-.content{
-    max-width: 1440px;
-    margin: 0 auto;
-    padding-inline: clamp(16px, 3vw, 30px);
+strong{
+    font-family: "Palanquin Dark", sans-serif;
+    font-weight: 400;
 }
 
-.main-content{
-    flex: 1;
+a {
+  text-decoration: none;
 }
 
-.cart-area{
-    width: 350px;
-    border-left: 1px solid #eee;
-    background-color: aqua;
-    height: 100vh;
-    position: sticky;
-    top: 0;
+.main-layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+.content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 3vw, 30px);
+}
+
+.main-content {
+  flex: 1;
 }
