@@ -1,105 +1,135 @@
-function init(){
-    loadOrder();
-    renderRestaurantHeader();
-    renderRestaurantCategories();
-    renderBasket();
-};
-
-function renderRestaurantHeader(){
-    let contentHeaderContainerRef = document.getElementById("content-header");
-    contentHeaderContainerRef.innerHTML = "";
-
-    for (let index = 0; index < restaurants.length; index++) {
-        const restaurant = restaurants[index];
-        contentHeaderContainerRef.innerHTML += headerRestaurantTemplate(restaurant);
-    }
+function init() {
+  loadOrder();
+  renderRestaurantHeader();
+  renderRestaurantCategories();
+  renderBasket();
 }
 
-function renderRestaurantCategories(){
-    let contentCategoriesContainerRef = document.getElementById("content-categories");
-    contentCategoriesContainerRef.innerHTML = "";
+function renderRestaurantHeader() {
+  let contentHeaderContainerRef = document.getElementById("content-header");
+  contentHeaderContainerRef.innerHTML = "";
 
-    let categorieDishesContainerRef = document.getElementById("categorie-dishes");
-    categorieDishesContainerRef.innerHTML = "";
-
-    for (let restaurantIndex = 0; restaurantIndex < restaurants.length; restaurantIndex++) {
-        const categories = restaurants[restaurantIndex].categories;
-
-        for (let categoriesIndex = 0; categoriesIndex < categories.length; categoriesIndex++) {
-            const caregory = categories[categoriesIndex];
-
-            contentCategoriesContainerRef.innerHTML += categorieListTemplate(caregory);
-            categorieDishesContainerRef.innerHTML += categorySectionTemplate(caregory);
-        }
-    }
+  for (let index = 0; index < restaurants.length; index++) {
+    const restaurant = restaurants[index];
+    contentHeaderContainerRef.innerHTML += headerRestaurantTemplate(restaurant);
+  }
 }
 
-function renderBasket(){
-    let basketContainerRef = document.getElementById("basket-items");
-    basketContainerRef.innerHTML = "";
+function renderRestaurantCategories() {
+  let contentCategoriesContainerRef =
+    document.getElementById("content-categories");
+  contentCategoriesContainerRef.innerHTML = "";
 
-    if(basket.length === 0){
-        basketContainerRef.innerHTML += basketEmptyTempate();
-    } else{
-        for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
-            const basketDish = basket[indexBasket];
-            basketContainerRef.innerHTML += basketTemplate(basketDish);
-            
-        }
+  let categorieDishesContainerRef = document.getElementById("categorie-dishes");
+  categorieDishesContainerRef.innerHTML = "";
+
+  for (
+    let restaurantIndex = 0;
+    restaurantIndex < restaurants.length;
+    restaurantIndex++
+  ) {
+    const categories = restaurants[restaurantIndex].categories;
+
+    for (
+      let categoriesIndex = 0;
+      categoriesIndex < categories.length;
+      categoriesIndex++
+    ) {
+      const caregory = categories[categoriesIndex];
+
+      contentCategoriesContainerRef.innerHTML +=
+        categorieListTemplate(caregory);
+      categorieDishesContainerRef.innerHTML +=
+        categorySectionTemplate(caregory);
     }
+  }
+}
 
+function renderBasket() {
+  let basketContainerRef = document.getElementById("basket-items");
+  basketContainerRef.innerHTML = "";
+
+  if (basket.length === 0) {
+    basketContainerRef.innerHTML += basketEmptyTempate();
+  } else {
+    for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
+      const basketDish = basket[indexBasket];
+      basketContainerRef.innerHTML += basketTemplate(basketDish);
+    }
+    renderBasketTotalAmount();
+  }
+}
+
+function renderBasketTotalAmount() {
+  let basketTotalAmountContainerRef = document.getElementById("total-amount");
+  basketTotalAmountContainerRef.innerHTML = "";
+
+  let totalamount = calculateTotalAmount();
+  let deliveryPrice = 4.99;
+  basketTotalAmountContainerRef.innerHTML += basketTotalAmountTemplate(totalamount, deliveryPrice);
+}
+
+function calculateTotalAmount() {
+  let totalamount = 0;
+
+  for (let index = 0; index < basket.length; index++) {
+    const bastektItem = basket[index];
+    totalamount += bastektItem.price * bastektItem.amount;
+  }
+
+  return totalamount;
 }
 
 function addToBasket(dishId) {
-    let dish = findDishById(dishId);
-    let basketItem = basket.find(item => item.id === dishId);
+  let dish = findDishById(dishId);
+  let basketItem = basket.find((item) => item.id === dishId);
 
-    if (basketItem) {
-        basketItem.amount++;
-    } else {
-        basket.push({
-            id: dish.id,
-            name: dish.name,
-            price: dish.price,
-            amount: 1
-        });
-    }
+  if (basketItem) {
+    basketItem.amount++;
+  } else {
+    basket.push({
+      id: dish.id,
+      name: dish.name,
+      price: dish.price,
+      amount: 1,
+    });
+  }
 
-    saveOrder();
-    renderBasket();
+  saveOrder();
+  renderBasket();
 }
 
-function findDishById(dishId){
-    for (let i = 0; i < restaurants.length; i++) {
-        const restaurant = restaurants[i];
+function findDishById(dishId) {
+  for (let i = 0; i < restaurants.length; i++) {
+    const restaurant = restaurants[i];
 
-        for (let j = 0; j < restaurant.categories.length; j++) {
-            const caregory = restaurant.categories[j];
-            let dish = caregory.dishes.find(d => d.id === dishId);
+    for (let j = 0; j < restaurant.categories.length; j++) {
+      const caregory = restaurant.categories[j];
+      let dish = caregory.dishes.find((d) => d.id === dishId);
 
-            if(dish){
-                return dish;
-            }
-        }
+      if (dish) {
+        return dish;
+      }
     }
+  }
 }
 
-function subDish(basketDishID){
-    let index = basket.findIndex(d => d.id === basketDishID);
-    basket[index].amount--;
+function subDish(basketDishID) {
+  let index = basket.findIndex((d) => d.id === basketDishID);
+  basket[index].amount--;
 
-    if(basket[index].amount <= 0){
-        basket.splice(index ,1);
-    }
+  if (basket[index].amount <= 0) {
+    basket.splice(index, 1);
+  }
 
-    saveOrder();
-    renderBasket();
+  saveOrder();
+  renderBasket();
 }
 
-function plusDish(basketDishID){
-    let baskekDish = basket.find(d => d.id === basketDishID);
-    baskekDish.amount++;
+function plusDish(basketDishID) {
+  let baskekDish = basket.find((d) => d.id === basketDishID);
+  baskekDish.amount++;
 
-    saveOrder();
-    renderBasket();
+  saveOrder();
+  renderBasket();
 }

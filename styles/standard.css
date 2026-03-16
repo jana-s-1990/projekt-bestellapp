@@ -17,6 +17,14 @@ h1{
     font-size: clamp(40px, 4vh, 48px);
 }
 
+h3{
+  font-weight: 600;
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
 strong{
     font-family: "Palanquin Dark", sans-serif;
     font-weight: 400;
@@ -24,6 +32,12 @@ strong{
 
 a {
   text-decoration: none;
+}
+
+button{
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 .main-layout {

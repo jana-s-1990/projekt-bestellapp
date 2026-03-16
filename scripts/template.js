@@ -1,5 +1,5 @@
-function headerRestaurantTemplate(restaurant){
-    return /*html*/`
+function headerRestaurantTemplate(restaurant) {
+  return /*html*/ `
         <header>
             <figure class="header-restaurant-img">
                 <img src="${restaurant.headerImg}" alt="${restaurant.name}">
@@ -15,26 +15,24 @@ function headerRestaurantTemplate(restaurant){
             </div>
             <p class="content-header-restaurant-description">${restaurant.description}</p>
         </div>
-    `
+    `;
 }
 
-function categorieListTemplate(category){
-    return /*html*/`
+function categorieListTemplate(category) {
+  return /*html*/ `
         <p><a href="#${category.name}" title="${category.name}">${category.name}</a></p>
-    `
+    `;
 }
 
-function categorySectionTemplate(category){
-    let dishesHTML = "";
+function categorySectionTemplate(category) {
+  let dishesHTML = "";
 
-    for (let i = 0; i < category.dishes.length; i++) {
-        const dish = category.dishes[i];
-        dishesHTML += dishesTemplate(dish);
-        console.log(dish);
-        console.log(dish.img);
-    }
+  for (let i = 0; i < category.dishes.length; i++) {
+    const dish = category.dishes[i];
+    dishesHTML += dishesTemplate(dish);
+  }
 
-    return /*html*/`
+  return /*html*/ `
         <section class="category">
             <div class="category-wrapper display-flex flex-mobile-column">
                 <figure class="caregory-icon">
@@ -48,43 +46,73 @@ function categorySectionTemplate(category){
                 ${dishesHTML}
             </div>
         </section>
-    `
+    `;
 }
 
-function dishesTemplate(dish){
-    return /*html*/`
+function dishesTemplate(dish) {
+  return /*html*/ `
         <div class="category-dish display-flex flex-mobile-column">
             <figure>
                 <img src="${dish.img}" alt="${dish.name}">
             </figure>
-            <h3>${dish.name}</h3>
-            <p>${dish.description}</p>
+            <div class="dish-infos">
+                <h3>${dish.name}</h3>
+                <p>${dish.description}</p>
+            </div>
             <div class="category-price-addBasket-wrapper display-flex">
-                <p>${dish.price.toFixed(2).replace(".", ",")}€</p>
-                <button onclick="addToBasket(${dish.id})"><i class="fa-solid fa-plus"></i></button>
+                <p class="dish-price">${dish.price.toFixed(2).replace(".", ",")}€</p>
+                <button class="dish-button" onclick="addToBasket(${dish.id})">Add to basket</button>
             </div>
         </div>
-    `
+    `;
 }
 
-function basketEmptyTempate(){
-    return /*html*/`
+function basketEmptyTempate() {
+  return /*html*/ `
+        <h3>Nothing here yet. Go ahead and choose something delicious!</h3>
         <i class="fa-solid fa-basket-shopping"></i>
-        <h3>Fülle deinen Warenkorb</h3>
-        <p>Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</p>
-    `
+    `;
 }
 
-function basketTemplate(basketDish){
-    return /*html*/`
+function basketTemplate(basketDish) {
+  return /*html*/ `
         <div class="cart-item">
             <p>
                 <span>${basketDish.amount}x</span>
                 <span>${basketDish.name}</span>
-                <span>${(basketDish.price * basketDish.amount).toFixed(2).replace(".", ",")} €</span>
-                <button onclick="subDish(${basketDish.id})"><i class="fa-solid fa-minus"></i></button>
-                <button onclick="plusDish(${basketDish.id})"><i class="fa-solid fa-plus"></i></button>
             </p>
-    </div>
+            <div class="cart-item-amount-price-wrapper">
+                <div class="cart-item-amount">
+                    <button onclick="subDish(${basketDish.id})"><i class="fa-solid fa-minus"></i></button>
+                    <span>${basketDish.amount}</span>
+                    <button onclick="plusDish(${basketDish.id})"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div class="cart-item-price">
+                    <span>${(basketDish.price * basketDish.amount).toFixed(2).replace(".", ",")} €</span>
+                </div>
+            </div>               
+        </div>
+    `;
+}
+
+function basketTotalAmountTemplate(totalamount, deliveryPrice){
+    return /*html*/`
+        <table class="basket-total-amount">
+            <tr>
+                <td>Subtotal</td>
+                <td>${totalamount.toFixed(2).replace(".", ",")}€</td>
+            </tr>
+            <tr>
+                <td>Delivery fee</td>
+                <td>${deliveryPrice.toFixed(2).replace(".", ",")}€</td>
+            </tr>
+        </table>
+        <table class="basket-total-amount basket-total-price">
+            <tr>
+                <td>Total</td>
+                <td>${(totalamount + deliveryPrice).toFixed(2).replace(".", ",")}€</td>
+            </tr>
+        </table>
+        <button class="basket-order-btn">Buy now (${(totalamount + deliveryPrice).toFixed(2).replace(".", ",")}€)</button>
     `
 }

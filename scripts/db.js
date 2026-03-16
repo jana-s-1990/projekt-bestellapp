@@ -17,10 +17,10 @@ let restaurants = [
         "dishes": [
           {
             "id": 1,
-            "name": "Frühlingsrolle",
-            "price": 4.5,
+            "name": "Veggie mushroom black burger",
+            "price": 16.90,
             "img": "../assets/img/dish-1.jpg",
-            "description": "Knusprige Frühlingsrolle mit Schweinehackfleisch und Gemüse.",
+            "description": "Chicken, Mozzarella, Gorgonzola, Fontina,  Parmigiano Reggiano",
           },
           {
             "id": 2,
