@@ -61,6 +61,7 @@ function dishesTemplate(dish) {
             </div>
             <div class="category-price-addBasket-wrapper display-flex">
                 <p class="dish-price">${dish.price.toFixed(2).replace(".", ",")}€</p>
+                ${updateDishButton(dish.id)}
                 <button class="dish-button" onclick="addToBasket(${dish.id})">Add to basket</button>
             </div>
         </div>

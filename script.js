@@ -50,6 +50,9 @@ function renderBasket() {
   basketContainerRef.innerHTML = "";
 
   if (basket.length === 0) {
+    let basketTotalAmountContainerRef = document.getElementById("total-amount");
+    basketTotalAmountContainerRef.innerHTML = "";
+
     basketContainerRef.innerHTML += basketEmptyTempate();
   } else {
     for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
@@ -66,7 +69,10 @@ function renderBasketTotalAmount() {
 
   let totalamount = calculateTotalAmount();
   let deliveryPrice = 4.99;
-  basketTotalAmountContainerRef.innerHTML += basketTotalAmountTemplate(totalamount, deliveryPrice);
+  basketTotalAmountContainerRef.innerHTML += basketTotalAmountTemplate(
+    totalamount,
+    deliveryPrice,
+  );
 }
 
 function calculateTotalAmount() {
@@ -94,9 +100,18 @@ function addToBasket(dishId) {
       amount: 1,
     });
   }
-
   saveOrder();
   renderBasket();
+  renderRestaurantCategories();
+}
+
+function updateDishButton(dishId){
+    const basketItem = basket.find((item) => item.id ==dishId);
+    if (basketItem){
+      return basketItem.amount;
+    } else{
+      return "";
+    }
 }
 
 function findDishById(dishId) {
@@ -124,6 +139,7 @@ function subDish(basketDishID) {
 
   saveOrder();
   renderBasket();
+  renderRestaurantCategories();
 }
 
 function plusDish(basketDishID) {
@@ -132,4 +148,5 @@ function plusDish(basketDishID) {
 
   saveOrder();
   renderBasket();
+  renderRestaurantCategories();
 }
