@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1.934018,0,0,1.904993,0.97807,1.145886)">
+        <path d="M32,4.902L32,27.098C32,29.804 29.837,32 27.172,32L4.828,32C2.163,32 0,29.804 0,27.098L0,4.902C0,2.196 2.163,0 4.828,0L27.172,0C29.837,0 32,2.196 32,4.902Z" style="fill:rgb(231,108,31);"/>
+    </g>
+    <g id="takeout_dining_2.png" transform="matrix(1.266371,0,0,1.304761,10.471696,6.835319)">
+        <use xlink:href="#_Image1" x="0" y="0" width="34px" height="38px"/>
+    </g>
+    <defs>
+        <image id="_Image1" width="34px" height="38px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAmCAYAAACh1knUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAk5JREFUeAHFVtFVwzAMvPDy33SCmg3KBJQJYANgAh4TABvABC0TABMQJqBMUDMB3SBI1AZXlZ20Sei9pyRSnOQin2QDDlVVGbJ7skXVH77InsjG0MA33KD/xI0kwZlYVPvBmeeRkTOj87lI0pzMkBUiXqIdxuKdNsuyQ5+RhWA5SWRqjBZIvfMAqz/3KIlhyRd0tnR6wOYf7Qz3zhcRHnkiKSzRPazwh2hARGrEoD3Un2MiZeB/iPvH6B+GDznZJdkpOzSHUhMT4Y/QHlYL5hFRwqm5QP+oFatWIUYGiPAV2bm79stE4fx7peQttkG1WhMk3pVxP33BXc98L3LGmIrxRrzzmePbZqSLqZJVM4gScek06AGkSUmkiBJBvIMadINlUyKnkTi8EDskghSR1JrSdUkbPuQyuqs+6LkL/DU83md8JYZb+Y1cGVS3whrovSAs0ytsAS5pbWqkPkrhD4T/hjRKJfYpAxqRcc2HhsK/RXy7MKdyfUQ9ijUiij5K1LRkt1YdkYUfZGJ3ZCeRx5ZJItjMhtwWMAwUMmQXQYgzcas0rxiRgRSr1MczNtFHHxnWZWSOyNrQMZE/sWr6cKntY98qsVa+TfTx8xDaw8pASETq45UPripC9KGRUSojsUZVNPiAxXZEVi1e0cdclJ4N7qeIcD+ZQK+2FIa+fJtmI0nETeMMNeBxbnfpMfBTo+ojgA2djvYkIX47a9OK+X0Q7WHD9+WKPlgbU5E6SVTe3wUmdDK3oZliz+Cp6Xq+d4HNnPBYnHU7s77AUrj+BiX4iBEzKhJfAAAAAElFTkSuQmCC"/>
+    </defs>
+</svg>

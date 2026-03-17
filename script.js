@@ -16,10 +16,6 @@ function renderRestaurantHeader() {
 }
 
 function renderRestaurantCategories() {
-  let contentCategoriesContainerRef =
-    document.getElementById("content-categories");
-  contentCategoriesContainerRef.innerHTML = "";
-
   let categorieDishesContainerRef = document.getElementById("categorie-dishes");
   categorieDishesContainerRef.innerHTML = "";
 
@@ -37,8 +33,6 @@ function renderRestaurantCategories() {
     ) {
       const caregory = categories[categoriesIndex];
 
-      contentCategoriesContainerRef.innerHTML +=
-        categorieListTemplate(caregory);
       categorieDishesContainerRef.innerHTML +=
         categorySectionTemplate(caregory);
     }
@@ -108,10 +102,18 @@ function addToBasket(dishId) {
 function updateDishButton(dishId){
     const basketItem = basket.find((item) => item.id ==dishId);
     if (basketItem){
-      return basketItem.amount;
+      return /*html*/`
+        <button class="dish-button dish-added-button" onclick="addToBasket(${dishId})">Added ${basketItem.amount}</button>
+      `
     } else{
-      return "";
+      return /*html*/`
+        <button class="dish-button" onclick="addToBasket(${dishId})">Add to basket</button>
+      `;
     }
+}
+
+function isDishInBasket(dishId) {
+  return basket.some((item) => item.id === dishId);
 }
 
 function findDishById(dishId) {

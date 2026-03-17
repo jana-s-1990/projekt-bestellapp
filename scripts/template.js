@@ -50,19 +50,20 @@ function categorySectionTemplate(category) {
 }
 
 function dishesTemplate(dish) {
+  let inBasket = isDishInBasket(dish.id);
+
   return /*html*/ `
         <div class="category-dish display-flex flex-mobile-column">
             <figure>
                 <img src="${dish.img}" alt="${dish.name}">
             </figure>
-            <div class="dish-infos">
+            <div class="dish-infos ${inBasket ? "dish-to-basket" : ""}">
                 <h3>${dish.name}</h3>
                 <p>${dish.description}</p>
             </div>
             <div class="category-price-addBasket-wrapper display-flex">
                 <p class="dish-price">${dish.price.toFixed(2).replace(".", ",")}€</p>
                 ${updateDishButton(dish.id)}
-                <button class="dish-button" onclick="addToBasket(${dish.id})">Add to basket</button>
             </div>
         </div>
     `;
@@ -84,7 +85,11 @@ function basketTemplate(basketDish) {
             </p>
             <div class="cart-item-amount-price-wrapper">
                 <div class="cart-item-amount">
-                    <button onclick="subDish(${basketDish.id})"><i class="fa-solid fa-minus"></i></button>
+                    ${
+                      basketDish.amount === 1
+                        ? `<button onclick="subDish(${basketDish.id})"><i class="fa-solid fa-trash-can"></i></button>`
+                        : `<button onclick="subDish(${basketDish.id})"><i class="fa-solid fa-minus"></i></button>`
+                    }
                     <span>${basketDish.amount}</span>
                     <button onclick="plusDish(${basketDish.id})"><i class="fa-solid fa-plus"></i></button>
                 </div>
@@ -96,8 +101,8 @@ function basketTemplate(basketDish) {
     `;
 }
 
-function basketTotalAmountTemplate(totalamount, deliveryPrice){
-    return /*html*/`
+function basketTotalAmountTemplate(totalamount, deliveryPrice) {
+  return /*html*/ `
         <table class="basket-total-amount">
             <tr>
                 <td>Subtotal</td>
@@ -115,5 +120,5 @@ function basketTotalAmountTemplate(totalamount, deliveryPrice){
             </tr>
         </table>
         <button class="basket-order-btn">Buy now (${(totalamount + deliveryPrice).toFixed(2).replace(".", ",")}€)</button>
-    `
+    `;
 }
