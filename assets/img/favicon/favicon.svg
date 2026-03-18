@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g transform="matrix(1.934018,0,0,1.904993,0.97807,1.145886)">
-        <path d="M32,4.902L32,27.098C32,29.804 29.837,32 27.172,32L4.828,32C2.163,32 0,29.804 0,27.098L0,4.902C0,2.196 2.163,0 4.828,0L27.172,0C29.837,0 32,2.196 32,4.902Z" style="fill:rgb(231,108,31);"/>
+<svg width="100%" height="100%" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(0.971517,0,0,0.956656,2.848301,4.334365)">
+        <path d="M200,19.075L200,180.925C200,191.453 191.583,200 181.217,200L18.783,200C8.417,200 0,191.453 0,180.925L0,19.075C0,8.547 8.417,0 18.783,0L181.217,0C191.583,0 200,8.547 200,19.075Z" style="fill:rgb(231,108,31);"/>
     </g>
-    <g id="takeout_dining_2.png" transform="matrix(1.266371,0,0,1.304761,10.471696,6.835319)">
+    <g id="takeout_dining_2.png" transform="matrix(4.37558,0,0,4.37558,28.615147,16.863988)">
         <use xlink:href="#_Image1" x="0" y="0" width="34px" height="38px"/>
     </g>
     <defs>
