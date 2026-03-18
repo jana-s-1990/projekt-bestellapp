@@ -50,7 +50,8 @@ button:hover {
 }
 
 .dish-button,
-.basket-order-btn {
+.basket-order-btn,
+.mobile-basket-btn {
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -59,7 +60,8 @@ button:hover {
 }
 
 .dish-button::before,
-.basket-order-btn::before {
+.basket-order-btn::before,
+.mobile-basket-btn::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -71,12 +73,14 @@ button:hover {
 }
 
 .dish-button:hover::before,
-.basket-order-btn:hover::before {
+.basket-order-btn:hover::before,
+.mobile-basket-btn:hover::before {
   transform: scaleX(1);
 }
 
 .dish-button:hover,
-.basket-order-btn:hover {
+.basket-order-btn:hover,
+.mobile-basket-btn:hover {
   color: white;
   transform: translateY(0px);
   box-shadow: none;

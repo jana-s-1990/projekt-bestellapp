@@ -1,3 +1,35 @@
+.mobile-basket{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: var(--grey-color);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding-block: 10px;
+  z-index: 999;
+}
+
+.mobile-basket-btn {
+  width: 70%;
+  max-width: 500px;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 999px;
+  background-color: var(--main-color);
+  color: white;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.mobile-basket-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px rgba(255, 128, 0, 0.6);
+}
+
 @media (min-width: 1024px) {
   .basket-container {
     width: 350px;

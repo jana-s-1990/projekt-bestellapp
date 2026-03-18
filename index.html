@@ -1,60 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bestell App</title>
 
-    <link rel="icon" href="assets/img/favicon/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="icon"
+      href="assets/img/favicon/favicon.svg"
+      type="image/svg+xml"
+    />
     <link rel="icon" href="assets/img/favicon/favicon.png" sizes="32x32" />
     <link rel="icon" href="assets/img/favicon/favicon.ico" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styles/standard.css">
-    <link rel="stylesheet" href="styles/flex.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/footer.css">
-    <link rel="stylesheet" href="styles/basket.css">
-    <link rel="stylesheet" href="styles/categories.css">
-    <link rel="stylesheet" href="styles/dish.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/standard.css" />
+    <link rel="stylesheet" href="styles/flex.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/basket.css" />
+    <link rel="stylesheet" href="styles/categories.css" />
+    <link rel="stylesheet" href="styles/dish.css" />
 
     <script src="scripts/db.js"></script>
     <script src="scripts/localStorage.js"></script>
     <script src="scripts/template.js"></script>
     <script src="script.js"></script>
-</head>
-<body onload="init()">
+  </head>
+  <body onload="init()">
     <header class="main-header">
-        <div>
-            <figure class="header-logo">
-                <img src="assets/img/logo/logo-bestellapp.png" alt="Bestell App Logo">
-            </figure>
-            <div class="burger-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+      <div>
+        <figure class="header-logo">
+          <img
+            src="assets/img/logo/logo-bestellapp.png"
+            alt="Bestell App Logo"
+          />
+        </figure>
+        <div class="burger-btn">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+      </div>
     </header>
     <main class="main-layout">
-        <div class="main-content">
-            <section id="content-header"></section>
-            <section id="categorie-dishes"></section>
+      <div class="main-content">
+        <section id="content-header"></section>
+        <section id="categorie-dishes"></section>
+      </div>
+      <div class="mobile-basket">
+        <button class="mobile-basket-btn">
+          <span class="left">
+            <i class="fa-solid fa-basket-shopping"></i> Warenkorb
+          </span>
+          <span id="mobile-basket-total">0,00 €</span>
+        </button>
+      </div>
+      <aside class="display-desktop basket-container">
+        <div class="basket">
+          <h2>Your Basket</h2>
+          <div id="basket-items"></div>
+          <div id="total-amount" class="cart-item-wrapper-delivery"></div>
         </div>
-        <aside class="display-desktop basket-container">
-            <div class="basket">
-                <h2>Your Basket</h2>
-                <div id="basket-items"></div>
-                <div id="total-amount" class="cart-item-wrapper-delivery"></div>
-            </div>
-        </aside>
+      </aside>
     </main>
     <footer class="display-flex main-footer">
-        <p><i class="fa-regular fa-copyright"></i> 2025 BurgerHouse</p>
-        <p>Imprint</p>
-        <p>Cookie Preferences</p>
-    </footer>   
-</body>
+      <p><i class="fa-regular fa-copyright"></i> 2025 BurgerHouse</p>
+      <p>Imprint</p>
+      <p>Cookie Preferences</p>
+    </footer>
+  </body>
 </html>
