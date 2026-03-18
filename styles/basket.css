@@ -93,5 +93,10 @@
     border-radius: 40px;
     padding-block: 15px;
     margin-top: 30px;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .basket-order-btn:hover {
+    box-shadow: 0 0 12px rgba(255, 128, 0, 0.6);
   }
 }

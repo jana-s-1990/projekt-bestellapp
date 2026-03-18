@@ -1,5 +1,6 @@
 .category-dishes {
   margin-top: 30px;
+  margin-bottom: 40px;
   flex-direction: column;
   gap: 40px;
 }
@@ -47,10 +48,6 @@
 }
 
 @media (min-width: 678px) {
-  .category-dishes {
-    margin-bottom: 40px;
-  }
-
   .category-dish {
     flex-direction: row;
     justify-content: space-between;
