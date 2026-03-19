@@ -53,8 +53,8 @@
         <section id="content-header"></section>
         <section id="categorie-dishes"></section>
       </div>
-      <div class="mobile-basket">
-        <button class="mobile-basket-btn">
+      <div class="display-mobile mobile-basket">
+        <button class="mobile-basket-btn" onclick="openMobileBasket()">
           <span class="left">
             <i class="fa-solid fa-basket-shopping"></i> Warenkorb
           </span>
@@ -69,6 +69,20 @@
         </div>
       </aside>
     </main>
+    <dialog
+      id="mobile-basket-container"
+      class="display-mobile mobile-basket-dialog"
+      onclick="closeMobileBasket()"
+    >
+      <div class="basket mobile-basket-wrapper" onclick="event.stopPropagation()">
+        <div class="display-flex button-wrapper">
+          <button class="close-btn-dialog" onclick="closeMobileBasket()" aira-label="Schließen"><i class="fa-solid fa-x"></i></button>
+        </div>
+        <h2>Your Basket</h2>
+        <div id="mobile-basket-items"></div>
+        <div id="mobile-total-amount" class="cart-item-wrapper-delivery"></div>
+      </div>
+    </dialog>
     <footer class="display-flex main-footer">
       <p><i class="fa-regular fa-copyright"></i> 2025 BurgerHouse</p>
       <p>Imprint</p>

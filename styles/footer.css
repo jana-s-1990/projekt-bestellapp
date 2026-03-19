@@ -6,6 +6,7 @@
     align-items: center;
     gap: 10px;
     padding-block: 20px;
+    padding-bottom: 100px;
 }
 
 @media (min-width: 768px){
@@ -14,6 +15,11 @@
         justify-content: center;
         gap: 30px;
         padding-top: 60px;
+    }
+}
+
+@media (min-width: 1024px){
+    .main-footer{
         padding-bottom: 30px;
     }
 }

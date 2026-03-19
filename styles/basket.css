@@ -1,4 +1,4 @@
-.mobile-basket{
+.mobile-basket {
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -30,19 +30,57 @@
   box-shadow: 0 0 12px rgba(255, 128, 0, 0.6);
 }
 
-@media (min-width: 1024px) {
-  .basket-container {
-    width: 350px;
-    background-color: var(--grey-color);
-    color: var(--dishes-cart-color);
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    padding-inline: 20px;
-    padding-block: 30px;
-  }
 
-  .basket {
+.mobile-basket-dialog {
+  width: min(90%, 500px);
+  border: none;
+  background: transparent;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, 100%);
+  opacity: 0;
+
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.mobile-basket-dialog.show {
+  transform: translate(-50%, -40%);
+  opacity: 1;
+}
+
+.mobile-basket-dialog.closing {
+  transform: translate(-50%, 100%);
+  opacity: 0;
+}
+
+.mobile-basket-dialog::backdrop {
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.35s ease;
+}
+
+.mobile-basket-dialog.show::backdrop {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+#mobile-basket-container {
+  background-color: var(--grey-color);
+  color: var(--dishes-cart-color);
+  width: 100%;
+  padding: 30px 20px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.button-wrapper{
+  justify-content: flex-end;
+}
+
+.close-btn-dialog{
+  color: var(--dishes-cart-color);
+  font-size: 20px;
+}
+
+.basket {
     text-align: center;
   }
 
@@ -118,7 +156,7 @@
   .basket-order-btn {
     background-color: var(--main-color);
     color: #fff;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 700;
     border: none;
     width: 100%;
@@ -131,4 +169,25 @@
   .basket-order-btn:hover {
     box-shadow: 0 0 12px rgba(255, 128, 0, 0.6);
   }
+
+@media (min-width: 1024px) {
+  .display-mobile {
+    display: none;
+  }
+
+  .basket-container {
+    background-color: var(--grey-color);
+    color: var(--dishes-cart-color);
+    width: 350px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding-inline: 20px;
+    padding-block: 30px;
+  }
+   .basket-order-btn {
+    font-size: 32px;
+  }
+
+  
 }
