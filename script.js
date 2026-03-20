@@ -1,8 +1,13 @@
 function init() {
+  setTitlePage();
   loadOrder();
   renderRestaurantHeader();
   renderRestaurantCategories();
   renderBasket();
+}
+
+function setTitlePage(){
+    document.title = "Bestell App -" + " " + restaurants[0].name;
 }
 
 function renderRestaurantHeader() {
@@ -65,10 +70,7 @@ function renderBasketContent(itemsContainerId, totalContainerId) {
   let totalamount = calculateTotalAmount();
   let deliveryPrice = 4.99;
 
-  basketTotalAmountContainerRef.innerHTML = basketTotalAmountTemplate(
-    totalamount,
-    deliveryPrice
-  );
+  basketTotalAmountContainerRef.innerHTML = basketTotalAmountTemplate(totalamount, deliveryPrice);
 }
 
 function updateMobileBasketTotal() {
