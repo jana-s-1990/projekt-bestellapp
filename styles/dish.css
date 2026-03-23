@@ -41,6 +41,8 @@
   padding-inline: 10px;
   border-radius: 40px;
   color: var(--grey-color);
+  font-size: 16px;
+  padding-block: 10px;
 }
 
 .dish-added-button {
@@ -74,5 +76,6 @@
   }
   .dish-button {
     padding-block: 5px;
+    font-size: 14px;
   }
 }

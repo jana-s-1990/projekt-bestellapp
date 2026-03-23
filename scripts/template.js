@@ -18,29 +18,22 @@ function headerRestaurantTemplate(restaurant) {
     `;
 }
 
-function categorySectionTemplate(category) {
-  let dishesHTML = "";
-
-  for (let i = 0; i < category.dishes.length; i++) {
-    const dish = category.dishes[i];
-    dishesHTML += dishesTemplate(dish);
-  }
-
+function categorySectionTemplate(category, dishesHTML) {
   return /*html*/ `
-        <section class="category">
-            <div class="category-wrapper display-flex flex-mobile-column">
-                <figure class="caregory-icon">
-                    <img src="${category.img}" alt="${category.name}">
-                </figure>
-                <div class="category-name-bg">
-                    <h2 id="${category.name}">${category.name}</h2>
-                </div>
-            </div>
-            <div class="category-dishes content display-flex">
-                ${dishesHTML}
-            </div>
-        </section>
-    `;
+    <section class="category">
+      <div class="category-wrapper display-flex flex-mobile-column">
+        <figure class="caregory-icon">
+          <img src="${category.img}" alt="${category.name}">
+        </figure>
+        <div class="category-name-bg">
+          <h2 id="${category.name}">${category.name}</h2>
+        </div>
+      </div>
+      <div class="category-dishes content display-flex">
+        ${dishesHTML}
+      </div>
+    </section>
+  `;
 }
 
 function dishesTemplate(dish) {
@@ -74,27 +67,39 @@ function basketEmptyTempate() {
 
 function basketTemplate(basketDish) {
   return /*html*/ `
-        <div class="cart-item">
-            <p>
-                <span>${basketDish.amount}x</span>
-                <span>${basketDish.name}</span>
-            </p>
-            <div class="cart-item-amount-price-wrapper">
-                <div class="cart-item-amount">
-                    ${
-                      basketDish.amount === 1
-                        ? `<button onclick="subDish(${basketDish.id})"><i class="fa-solid fa-trash-can"></i></button>`
-                        : `<button onclick="subDish(${basketDish.id})"><i class="fa-solid fa-minus"></i></button>`
-                    }
-                    <span>${basketDish.amount}</span>
-                    <button onclick="plusDish(${basketDish.id})"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="cart-item-price">
-                    <span>${(basketDish.price * basketDish.amount).toFixed(2).replace(".", ",")} €</span>
-                </div>
-            </div>               
-        </div>
+            <div class="cart-item">
+                <p>
+                    <span>${basketDish.amount}x</span>
+                    <span>${basketDish.name}</span>
+                </p>
+                <div class="cart-item-amount-price-wrapper">
+                    <div class="cart-item-amount">
+                        ${
+                          basketDish.amount === 1
+                            ? `<button onclick="subDish(${basketDish.id})"><i class="fa-solid fa-trash-can"></i></button>`
+                            : `<button onclick="subDish(${basketDish.id})"><i class="fa-solid fa-minus"></i></button>`
+                        }
+                        <span>${basketDish.amount}</span>
+                        <button onclick="plusDish(${basketDish.id})"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="cart-item-price">
+                        <span>${(basketDish.price * basketDish.amount).toFixed(2).replace(".", ",")} €</span>
+                    </div>
+                </div>               
+            </div>
     `;
+}
+
+function dishButtonAddedTemplate(dishId, basketItem) {
+  return /*html*/ `
+        <button class="dish-button dish-added-button" onclick="addToBasket(${dishId})">Added ${basketItem.amount}</button>
+      `;
+}
+
+function dishButtonAddBasketTemplate(dishId) {
+  return /*html*/ `
+        <button class="dish-button" onclick="addToBasket(${dishId})">Add to basket</button>
+      `;
 }
 
 function basketTotalAmountTemplate(totalamount, deliveryPrice) {
