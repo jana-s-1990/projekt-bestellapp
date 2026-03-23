@@ -18,12 +18,6 @@ function headerRestaurantTemplate(restaurant) {
     `;
 }
 
-function categorieListTemplate(category) {
-  return /*html*/ `
-        <p><a href="#${category.name}" title="${category.name}">${category.name}</a></p>
-    `;
-}
-
 function categorySectionTemplate(category) {
   let dishesHTML = "";
 
@@ -63,7 +57,9 @@ function dishesTemplate(dish) {
             </div>
             <div class="category-price-addBasket-wrapper display-flex">
                 <p class="dish-price">${dish.price.toFixed(2).replace(".", ",")}€</p>
-                ${updateDishButton(dish.id)}
+                <div id="dish-btn-${dish.id}">
+                    ${updateDishButton(dish.id)}
+                </div>
             </div>
         </div>
     `;
@@ -119,6 +115,8 @@ function basketTotalAmountTemplate(totalamount, deliveryPrice) {
                 <td>${(totalamount + deliveryPrice).toFixed(2).replace(".", ",")}€</td>
             </tr>
         </table>
-        <button class="basket-order-btn">Buy now (${(totalamount + deliveryPrice).toFixed(2).replace(".", ",")}€)</button>
+        <button class="basket-order-btn" onclick="buyNow()">
+          Buy now (${(totalamount + deliveryPrice).toFixed(2).replace(".", ",")}€)
+        </button>    
     `;
 }

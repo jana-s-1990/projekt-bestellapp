@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="styles/basket.css" />
     <link rel="stylesheet" href="styles/categories.css" />
     <link rel="stylesheet" href="styles/dish.css" />
+    <link rel="stylesheet" href="styles/order-overlay.css">
 
     <script src="scripts/db.js"></script>
     <script src="scripts/localStorage.js"></script>
@@ -83,6 +84,19 @@
         <div id="mobile-total-amount" class="cart-item-wrapper-delivery"></div>
       </div>
     </dialog>
+
+    <dialog id="order-feedback" class="order-feedback-container">
+      <button class="order-feedback-close" onclick="closeOrderFeedback()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="order-feedback-content">
+        <div class="order-feedback-icon"><img src="assets/img/icons/ico-orderd.png" alt=""></div>
+        <h2>Order confirmed!</h2>
+        <p>Your food is on the way!</p>
+      </div>
+    </dialog>
+
     <footer class="display-flex main-footer">
       <p><i class="fa-regular fa-copyright"></i> 2025 BurgerHouse</p>
       <p>Imprint</p>

@@ -1,3 +1,5 @@
+let orderFeedbackTimeout;
+
 function init() {
   setTitlePage();
   loadOrder();
@@ -24,22 +26,13 @@ function renderRestaurantCategories() {
   let categorieDishesContainerRef = document.getElementById("categorie-dishes");
   categorieDishesContainerRef.innerHTML = "";
 
-  for (
-    let restaurantIndex = 0;
-    restaurantIndex < restaurants.length;
-    restaurantIndex++
-  ) {
+  for (let restaurantIndex = 0; restaurantIndex < restaurants.length; restaurantIndex++) {
     const categories = restaurants[restaurantIndex].categories;
 
-    for (
-      let categoriesIndex = 0;
-      categoriesIndex < categories.length;
-      categoriesIndex++
-    ) {
+    for (let categoriesIndex = 0; categoriesIndex < categories.length; categoriesIndex++) {
       const caregory = categories[categoriesIndex];
 
-      categorieDishesContainerRef.innerHTML +=
-        categorySectionTemplate(caregory);
+      categorieDishesContainerRef.innerHTML += categorySectionTemplate(caregory);
     }
   }
 }
@@ -53,6 +46,8 @@ function renderBasket() {
 function renderBasketContent(itemsContainerId, totalContainerId) {
   let basketContainerRef = document.getElementById(itemsContainerId);
   let basketTotalAmountContainerRef = document.getElementById(totalContainerId);
+  let totalamount = calculateTotalAmount();
+  let deliveryPrice = 4.99;
 
   basketContainerRef.innerHTML = "";
   basketTotalAmountContainerRef.innerHTML = "";
@@ -66,9 +61,6 @@ function renderBasketContent(itemsContainerId, totalContainerId) {
     const basketDish = basket[indexBasket];
     basketContainerRef.innerHTML += basketTemplate(basketDish);
   }
-
-  let totalamount = calculateTotalAmount();
-  let deliveryPrice = 4.99;
 
   basketTotalAmountContainerRef.innerHTML = basketTotalAmountTemplate(totalamount, deliveryPrice);
 }
@@ -109,7 +101,7 @@ function addToBasket(dishId) {
   }
   saveOrder();
   renderBasket();
-  renderRestaurantCategories();
+  updateDishButtons();
 }
 
 function openMobileBasket(){
@@ -139,6 +131,25 @@ function closeMobileBasket() {
     dialog.close();
     dialog.classList.remove('closing');
   }, 350);
+}
+
+function updateDishButtons() {
+  for (let i = 0; i < restaurants.length; i++) {
+    const restaurant = restaurants[i];
+
+    for (let j = 0; j < restaurant.categories.length; j++) {
+      const category = restaurant.categories[j];
+
+      for (let k = 0; k < category.dishes.length; k++) {
+        const dish = category.dishes[k];
+        const dishBtnContainerRef = document.getElementById(`dish-btn-${dish.id}`);
+
+        if (dishBtnContainerRef) {
+          dishBtnContainerRef.innerHTML = updateDishButton(dish.id);
+        }
+      }
+    }
+  }
 }
 
 function updateDishButton(dishId){
@@ -183,7 +194,7 @@ function subDish(basketDishID) {
 
   saveOrder();
   renderBasket();
-  renderRestaurantCategories();
+  updateDishButtons();
 }
 
 function plusDish(basketDishID) {
@@ -192,5 +203,57 @@ function plusDish(basketDishID) {
 
   saveOrder();
   renderBasket();
-  renderRestaurantCategories();
+  updateDishButtons();
+}
+
+function buyNow() {
+  const mobileDialog = document.getElementById("mobile-basket-container");
+
+  if (basket.length === 0) return;
+
+  basket = [];
+  saveOrder();
+  renderBasket();
+  updateDishButtons();
+
+  if (mobileDialog.open) {
+    closeMobileBasket();
+    
+    setTimeout(() => {
+      showOrderFeedback();
+    }, 350);
+  } else {
+    showOrderFeedback();
+  }
+}
+
+function showOrderFeedback() {
+  const dialog = document.getElementById("order-feedback");
+
+  if (!dialog.open) {
+    dialog.showModal();
+  }
+
+  requestAnimationFrame(() => {
+    dialog.classList.add("show");
+  });
+
+  clearTimeout(orderFeedbackTimeout);
+  orderFeedbackTimeout = setTimeout(() => {
+    closeOrderFeedback();
+  }, 2500);
+}
+
+function closeOrderFeedback() {
+  const dialog = document.getElementById("order-feedback");
+
+  dialog.classList.remove("show");
+  dialog.classList.add("closing");
+
+  clearTimeout(orderFeedbackTimeout);
+
+  setTimeout(() => {
+    dialog.close();
+    dialog.classList.remove("closing");
+  }, 300);
 }
